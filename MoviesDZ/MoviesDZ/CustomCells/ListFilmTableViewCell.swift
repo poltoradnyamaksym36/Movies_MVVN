@@ -4,14 +4,17 @@
 import UIKit
 /// MyTableViewCell
 class ListFilmTableViewCell: UITableViewCell {
-    
     static let identifier = "ListFilmTableViewCell"
 
-    //MARK: - Private Properties
-    private let labelText = UILabel()
-    private let movieImageView = UIImageView()
-    private let titleLabel = UILabel()
+    // MARK: - Private Properties
+
     private var arrayMovie: [Results] = []
+
+    // MARK: - Public Properties
+
+    let titleLabel = UILabel()
+    let labelText = UILabel()
+    let movieImageView = UIImageView()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +27,8 @@ class ListFilmTableViewCell: UITableViewCell {
         createTitleLabel()
     }
 
-    //MARK: - Public Methods
+    // MARK: - Public Methods
+
     public func createLabel() {
         addSubview(labelText)
         labelText.numberOfLines = 0

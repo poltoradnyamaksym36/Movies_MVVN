@@ -4,8 +4,8 @@
 import UIKit
 
 final class DetailFilmViewController: UIViewController {
-    
-    //MARK: - Private Properties
+    // MARK: - Private Properties
+
     private let imageCellID = SelectedMovieImageTableViewCell.identifier
     private let descriptionCellID = DetailFilmTableViewCell.identifier
     private var movieList: Movie?
@@ -19,7 +19,9 @@ final class DetailFilmViewController: UIViewController {
         chosenMovieTableView.register(DetailFilmTableViewCell.self, forCellReuseIdentifier: "DetailFilmTableViewCell")
         return chosenMovieTableView
     }()
-    //MARK: - Public Properties
+
+    // MARK: - Public Properties
+
     var movieID = Int()
 
     override func viewDidLoad() {
@@ -32,6 +34,7 @@ final class DetailFilmViewController: UIViewController {
     }
 
     // MARK: - Private Methods
+
     private func subviews() {
         view.addSubview(chosenMovieTableView)
     }
@@ -73,6 +76,7 @@ final class DetailFilmViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
+
 extension DetailFilmViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         2
@@ -106,6 +110,7 @@ extension DetailFilmViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
+
 extension DetailFilmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         400

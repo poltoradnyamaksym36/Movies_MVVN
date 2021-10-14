@@ -1,28 +1,36 @@
-// Image.swift
+// ListFilm.swift
 // Copyright © VTB. All rights reserved.
 
 import Foundation
-
-struct ListFilm: Decodable {
-    let page: Int
+/// Film Images Model
+struct ListFilm: Codable {
     let results: [Results]
-    let total_results: Int
-    let total_pages: Int
 }
 
-struct Results: Decodable {
-    var poster_path: String?
+/// Film Images Model
+struct Results: Codable {
+    var posterPath: String?
     var adult: Bool?
     var overview: String
-    var release_date: String
-    var genre_ids: [Int]
-    var id: Int
-    var original_title: String
-    var original_language: String
-    var title: String
-    var backdrop_path: String?
-    var popularity: Int
-    var vote_count: Int
-    var video: Bool
-    var vote_average: Int
+    var releaseDate: String?
+    var id: Int?
+    var originalTitle: String?
+    var title: String?
+    var backdropPath: String?
+    var popularity: Float?
+    var voteCount: Int?
+    var voteAverage: Float?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case id
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
 }

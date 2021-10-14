@@ -4,13 +4,14 @@
 import UIKit
 
 final class DetailFilmTableViewCell: UITableViewCell {
-    
     static let identifier = "DetailFilmTableViewCell"
-    
-    //MARK: - Private Properties
+
+    // MARK: - Private Properties
+
     private let descriptionFilmLabel = UILabel()
 
-    //MARK: - Public Properties
+    // MARK: - Public Properties
+
     var descriptionText: String?
 
     override func layoutSubviews() {
@@ -18,7 +19,8 @@ final class DetailFilmTableViewCell: UITableViewCell {
         descriptionFilmLabel.text = descriptionText ?? ""
     }
 
-    //MARK: - Private Properties
+    // MARK: - Private Properties
+
     private func createFilmLabel() {
         addSubview(descriptionFilmLabel)
         descriptionFilmLabel.translatesAutoresizingMaskIntoConstraints = false

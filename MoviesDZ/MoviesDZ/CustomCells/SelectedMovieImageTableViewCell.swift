@@ -4,15 +4,16 @@
 import UIKit
 
 final class SelectedMovieImageTableViewCell: UITableViewCell {
-    
     static let identifier = "SelectedMovieImageTableViewCell"
-    
-    //MARK: - Private Properties
+
+    // MARK: - Private Properties
+
     private let chosenMoviePosterImageView = UIImageView()
     private let descriptionLabel = UILabel()
 
-    //MARK:- Private methods
-    private func configure(movie: Movie) {
+    // MARK: - Private methods
+
+    func configure(movie: Movie) {
         DispatchQueue.global().async {
             let urlString = "https://image.tmdb.org/t/p/w500\(movie.posterPath ?? "")"
             guard let url = URL(string: urlString) else { return }
