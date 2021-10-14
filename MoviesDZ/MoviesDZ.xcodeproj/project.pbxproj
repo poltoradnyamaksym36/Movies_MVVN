@@ -13,6 +13,7 @@
 		3087E8D126AF27B700F3BD09 /* ListFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087E8D026AF27B700F3BD09 /* ListFilmViewController.swift */; };
 		3087E8D626AF27B800F3BD09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3087E8D526AF27B800F3BD09 /* Assets.xcassets */; };
 		3087E8D926AF27B800F3BD09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3087E8D726AF27B800F3BD09 /* LaunchScreen.storyboard */; };
+		308B522227186EBB00F70D46 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B522127186EBB00F70D46 /* MovieViewModel.swift */; };
 		30A6CDF026B86EAA005B35D4 /* DetailFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A6CDEF26B86EAA005B35D4 /* DetailFilmTableViewCell.swift */; };
 		30C9296B26B1CA92002A9145 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9296A26B1CA92002A9145 /* Movie.swift */; };
 		30C9296D26B1D978002A9145 /* ListFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9296C26B1D978002A9145 /* ListFilmTableViewCell.swift */; };
@@ -29,6 +30,7 @@
 		3087E8D526AF27B800F3BD09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3087E8D826AF27B800F3BD09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3087E8DA26AF27B800F3BD09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		308B522127186EBB00F70D46 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		30A6CDEF26B86EAA005B35D4 /* DetailFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmTableViewCell.swift; sourceTree = "<group>"; };
 		30C9296A26B1CA92002A9145 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		30C9296C26B1D978002A9145 /* ListFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilmTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,15 +70,23 @@
 			children = (
 				3087E8CC26AF27B700F3BD09 /* AppDelegate.swift */,
 				3087E8CE26AF27B700F3BD09 /* SceneDelegate.swift */,
-				30A6CDF226B87ACD005B35D4 /* ViewControllers */,
-				30A6CDF126B87AC0005B35D4 /* CustomCells */,
 				30CFFE0E26B5AFA8001F8806 /* Model */,
+				30A6CDF226B87ACD005B35D4 /* View */,
+				308B522027186EAB00F70D46 /* ViewModel */,
 				3087E8D526AF27B800F3BD09 /* Assets.xcassets */,
 				3087E8CA26AF27B700F3BD09 /* Products */,
 				3087E8D726AF27B800F3BD09 /* LaunchScreen.storyboard */,
 				3087E8DA26AF27B800F3BD09 /* Info.plist */,
 			);
 			path = MoviesDZ;
+			sourceTree = "<group>";
+		};
+		308B522027186EAB00F70D46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				308B522127186EBB00F70D46 /* MovieViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		30A6CDF126B87AC0005B35D4 /* CustomCells */ = {
@@ -89,13 +99,14 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		30A6CDF226B87ACD005B35D4 /* ViewControllers */ = {
+		30A6CDF226B87ACD005B35D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				3087E8D026AF27B700F3BD09 /* ListFilmViewController.swift */,
 				30D7ADAC26B677F00002E3EB /* DetailFilmViewController.swift */,
+				30A6CDF126B87AC0005B35D4 /* CustomCells */,
 			);
-			path = ViewControllers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		30CFFE0E26B5AFA8001F8806 /* Model */ = {
@@ -219,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3087E8D126AF27B700F3BD09 /* ListFilmViewController.swift in Sources */,
+				308B522227186EBB00F70D46 /* MovieViewModel.swift in Sources */,
 				30D7ADAD26B677F00002E3EB /* DetailFilmViewController.swift in Sources */,
 				30A6CDF026B86EAA005B35D4 /* DetailFilmTableViewCell.swift in Sources */,
 				30CFFE0D26B5AE36001F8806 /* ListFilm.swift in Sources */,
