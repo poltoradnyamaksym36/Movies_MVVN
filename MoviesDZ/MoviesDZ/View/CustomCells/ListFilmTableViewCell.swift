@@ -7,29 +7,33 @@ class ListFilmTableViewCell: UITableViewCell {
     static let identifier = "ListFilmTableViewCell"
 
     // MARK: - Private Properties
-
-    private var arrayMovie: [Results] = []
-
-    // MARK: - Public Properties
-
-    let titleLabel = UILabel()
-    let labelText = UILabel()
-    let movieImageView = UIImageView()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    private let titleLabel = UILabel()
+    private let labelText = UILabel()
+    private let movieImageView = UIImageView()
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         createImage()
-        createLabel()
         createTitleLabel()
+        createLabel()
     }
 
-    // MARK: - Public Methods
+    func configureCell(withData data: Results?) {
+        DispatchQueue.global().async {
+            guard let poster = data?.posterPath,
+                  let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(poster)"),
+                  let imageData = try? Data(contentsOf: urlImage),
+                  let image = UIImage(data: imageData)
+            else { return }
+            DispatchQueue.main.async {
+                self.movieImageView.image = image
+                self.titleLabel.text = data?.title
+                self.labelText.text = data?.overview
+            }
+        }
+    }
 
-    public func createLabel() {
+    func createLabel() {
         addSubview(labelText)
         labelText.numberOfLines = 0
         labelText.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +45,7 @@ class ListFilmTableViewCell: UITableViewCell {
         ])
     }
 
-    public func createImage() {
+    func createImage() {
         addSubview(movieImageView)
         movieImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -53,7 +57,7 @@ class ListFilmTableViewCell: UITableViewCell {
         ])
     }
 
-    public func createTitleLabel() {
+    func createTitleLabel() {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 0
