@@ -69,8 +69,17 @@ extension ListFilmViewController: UITableViewDataSource {
 extension ListFilmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let movieID = viewModel.results?[indexPath.row].id else { return }
-        let vc = DetailFilmViewController()
-        vc.viewMovieDetailModel.movieID = movieID
+        
+        //создать модель
+        let detailFilmModel = MovieDetailViewModel(movieDetail: <#T##Movie?#>, movieID: <#T##Int?#>)
+        
+        //
+        let detailFilmModel = DetailFilmViewController(viewMovieDetailModel: <#T##DetailFilmViewModelProtocol#>)
+
+        
+        
+        
+        vc.viewMovieDetailModel.fetchDetailMovieFill()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -4,27 +4,34 @@
 import Foundation
 
 protocol DetailFilmViewModelProtocol {
-    func fetchDetailMovieFill()
     var movieDetail: Movie? { get set }
-    var movieID: Int? { get set }
     var updateViewData: (() -> ())? { get set }
+    func fetchDetailMovieFill(movieID: Int?)
+    var movieID: Int? { get set }
 }
 
 final class MovieDetailViewModel: DetailFilmViewModelProtocol {
-    var movieID: Int?
     var movieDetail: Movie?
     var updateViewData: (() -> ())?
+    var movieID: Int?
 
-    func fetchDetailMovieFill() {
+    init(movieDetail: Movie?, movieID: Int?) {
+        self.movieDetail = movieDetail
+        self.movieID = movieID
+        fetchDetailMovieFill(movieID: movieID)
+    }
+
+    func fetchDetailMovieFill(movieID: Int?) {
         guard let url =
             URL(
                 string: """
-                https://api.themoviedb.org/3/movie/\(movieID)?api_key=7502b719af3e4c9ad68d80658e7b83ed&language=ru-RU
+                https://api.themoviedb.org/3/movie/\(movieID ??
+                    0)?api_key=7502b719af3e4c9ad68d80658e7b83ed&language=ru-RU
                 """
             )
         else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { data, _, error in
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 print(error.localizedDescription)
             }
