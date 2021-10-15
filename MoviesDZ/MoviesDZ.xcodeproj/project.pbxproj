@@ -15,6 +15,7 @@
 		3087E8D926AF27B800F3BD09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3087E8D726AF27B800F3BD09 /* LaunchScreen.storyboard */; };
 		308B522227186EBB00F70D46 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B522127186EBB00F70D46 /* MovieViewModel.swift */; };
 		30A6CDF026B86EAA005B35D4 /* DetailFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A6CDEF26B86EAA005B35D4 /* DetailFilmTableViewCell.swift */; };
+		30C094922719CA5C0041AEA3 /* DetailFilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C094912719CA5C0041AEA3 /* DetailFilmViewModel.swift */; };
 		30C9296B26B1CA92002A9145 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9296A26B1CA92002A9145 /* Movie.swift */; };
 		30C9296D26B1D978002A9145 /* ListFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9296C26B1D978002A9145 /* ListFilmTableViewCell.swift */; };
 		30CFFE0D26B5AE36001F8806 /* ListFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFFE0C26B5AE36001F8806 /* ListFilm.swift */; };
@@ -32,6 +33,7 @@
 		3087E8DA26AF27B800F3BD09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308B522127186EBB00F70D46 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		30A6CDEF26B86EAA005B35D4 /* DetailFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmTableViewCell.swift; sourceTree = "<group>"; };
+		30C094912719CA5C0041AEA3 /* DetailFilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmViewModel.swift; sourceTree = "<group>"; };
 		30C9296A26B1CA92002A9145 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		30C9296C26B1D978002A9145 /* ListFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilmTableViewCell.swift; sourceTree = "<group>"; };
 		30CFFE0C26B5AE36001F8806 /* ListFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilm.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				308B522127186EBB00F70D46 /* MovieViewModel.swift */,
+				30C094912719CA5C0041AEA3 /* DetailFilmViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -112,8 +115,8 @@
 		30CFFE0E26B5AFA8001F8806 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30C9296A26B1CA92002A9145 /* Movie.swift */,
 				30CFFE0C26B5AE36001F8806 /* ListFilm.swift */,
+				30C9296A26B1CA92002A9145 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,7 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n\n";
 		};
 		3087E8E026AF27C400F3BD09 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -231,6 +234,7 @@
 			files = (
 				3087E8D126AF27B700F3BD09 /* ListFilmViewController.swift in Sources */,
 				308B522227186EBB00F70D46 /* MovieViewModel.swift in Sources */,
+				30C094922719CA5C0041AEA3 /* DetailFilmViewModel.swift in Sources */,
 				30D7ADAD26B677F00002E3EB /* DetailFilmViewController.swift in Sources */,
 				30A6CDF026B86EAA005B35D4 /* DetailFilmTableViewCell.swift in Sources */,
 				30CFFE0D26B5AE36001F8806 /* ListFilm.swift in Sources */,

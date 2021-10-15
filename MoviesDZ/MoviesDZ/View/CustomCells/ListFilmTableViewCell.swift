@@ -7,6 +7,7 @@ class ListFilmTableViewCell: UITableViewCell {
     static let identifier = "ListFilmTableViewCell"
 
     // MARK: - Private Properties
+
     private let titleLabel = UILabel()
     private let labelText = UILabel()
     private let movieImageView = UIImageView()
