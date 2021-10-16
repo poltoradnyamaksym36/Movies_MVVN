@@ -26,13 +26,14 @@ class ListFilmTableViewCell: UITableViewCell {
 
             guard let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath ?? "")"),
                   let imageData = try? Data(contentsOf: urlImage) else { return }
-
             DispatchQueue.main.async {
                 self.movieImageView.image = UIImage(data: imageData)
                 self.labelText.text = data.overview
                 self.titleLabel.text = data.title
             }
         }
+
+        // MARK: - imageAPIService
 
 //        imageApiService.configure(movie: data) { [weak self] result in
 //            switch result {
@@ -42,8 +43,8 @@ class ListFilmTableViewCell: UITableViewCell {
 //                print(error.localizedDescription)
 //            }
 //        }
-//                self.labelText.text = data.overview
-//                 self.titleLabel.text = data.title
+//        self.labelText.text = data?.overview
+//        self.titleLabel.text = data?.title
     }
 
     func createLabel() {

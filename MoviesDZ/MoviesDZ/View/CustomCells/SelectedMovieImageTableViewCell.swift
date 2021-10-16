@@ -25,6 +25,9 @@ final class SelectedMovieImageTableViewCell: UITableViewCell {
                 self.chosenMoviePosterImageView.image = posterImage
             }
         }
+
+        // MARK: - imageAPIService
+
 //        imageAPIService.configure(movie: movie) { [weak self] result in
 //            switch result {
 //            case let .success(image):

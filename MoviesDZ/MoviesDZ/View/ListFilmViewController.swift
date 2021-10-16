@@ -75,11 +75,7 @@ extension ListFilmViewController: UITableViewDelegate {
         guard let movieID = viewModel.results?[indexPath.row].id else { return }
 
         let detailApiService = MovieApiService()
-
-        // создал модель
         let detailFilmModel = MovieDetailViewModel(movieID: movieID, movieDetailApiService: detailApiService)
-
-        // создал новый экран
         let detailVC = DetailFilmViewController(viewMovieDetailModel: detailFilmModel)
 
         navigationController?.pushViewController(detailVC, animated: true)
