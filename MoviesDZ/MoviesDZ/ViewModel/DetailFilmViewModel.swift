@@ -15,9 +15,9 @@ final class MovieDetailViewModel: DetailFilmViewModelProtocol {
     var updateViewData: (() -> ())?
     var movieID: Int?
 
-    init(movieDetail: Movie?, movieID: Int?) {
-        self.movieDetail = movieDetail
+    init(movieID: Int?) { // movieID: Int? movieDetail: Movie?
         self.movieID = movieID
+//        self.movieID = movieID
         fetchDetailMovieFill(movieID: movieID)
     }
 

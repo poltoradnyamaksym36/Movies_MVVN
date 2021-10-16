@@ -33,21 +33,23 @@ final class DetailFilmViewController: UIViewController {
     }
 
     func updateView() {
-        self.viewMovieDetailModel?.updateViewData = { [weak self] in
-            DispatchQueue.main.sync {
+        viewMovieDetailModel?.updateViewData = { [weak self] in
+            DispatchQueue.main.async {
                 self?.chosenMovieTableView.reloadData()
             }
         }
     }
-    
+
     init(viewMovieDetailModel: DetailFilmViewModelProtocol) {
         self.viewMovieDetailModel = viewMovieDetailModel
+        super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Private Methods
 
     private func subviews() {
@@ -72,7 +74,7 @@ extension DetailFilmViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let movie = viewMovieDetailModel.movieDetail else { return UITableViewCell() }
+        guard let movie = viewMovieDetailModel?.movieDetail else { return UITableViewCell() }
         switch indexPath.row {
         case 0:
             guard let cell = tableView
