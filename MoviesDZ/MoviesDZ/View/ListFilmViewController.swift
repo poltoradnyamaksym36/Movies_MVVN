@@ -70,10 +70,8 @@ extension ListFilmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let movieID = viewModel.results?[indexPath.row].id else { return }
         
-        //создать модель
-        let detailFilmModel = MovieDetailViewModel(movieDetail: <#T##Movie?#>, movieID: <#T##Int?#>)
+        let detailFilmModel = MovieDetailViewModel(movieDetail: viewModel.results, movieID: movieID)
         
-        //
         let detailFilmModel = DetailFilmViewController(viewMovieDetailModel: <#T##DetailFilmViewModelProtocol#>)
 
         
