@@ -23,6 +23,9 @@ class ListFilmViewController: UIViewController {
         filmTableView.dataSource = self
         filmTableView.delegate = self
         setConstraints()
+
+//        viewModel.fetchData()
+//        reloadData()
         updateView()
     }
 
@@ -34,6 +37,16 @@ class ListFilmViewController: UIViewController {
             filmTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+
+//    func setupMoViewModel(viewModel: MoviesViewModelProtocol) {
+//        self.viewModel = viewModel
+//    }
+
+//    func reloadData() {
+//        viewModel.updateViewData = { [weak self] in
+//            self?.filmTableView.reloadData()
+//        }
+//    }
 
     func updateView() {
         viewModel.fetchData()
