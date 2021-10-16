@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainVC = ListFilmViewController()
         let movieApiService = MovieApiService()
         let mainViewModel = MovieViewModel(movieApiService: movieApiService)
-//        mainVC.setupMoViewModel(viewModel: mainViewModel)
-        mainVC.viewModel = mainViewModel
+        mainVC.setupMoViewModel(viewModel: mainViewModel)
+//        mainVC.viewModel = mainViewModel
 
         let navController = UINavigationController(rootViewController: mainVC)
         navController.navigationBar.isTranslucent = true

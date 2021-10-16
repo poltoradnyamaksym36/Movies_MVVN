@@ -38,9 +38,9 @@ class ListFilmViewController: UIViewController {
         ])
     }
 
-//    func setupMoViewModel(viewModel: MoviesViewModelProtocol) {
-//        self.viewModel = viewModel
-//    }
+    func setupMoViewModel(viewModel: MoviesViewModelProtocol) {
+        self.viewModel = viewModel
+    }
 
 //    func reloadData() {
 //        viewModel.updateViewData = { [weak self] in
@@ -83,8 +83,10 @@ extension ListFilmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let movieID = viewModel.results?[indexPath.row].id else { return }
 
+        let detailApiService = MovieApiService()
+
         // создал модель
-        let detailFilmModel = MovieDetailViewModel(movieID: movieID)
+        let detailFilmModel = MovieDetailViewModel(movieID: movieID, movieDetailApiService: detailApiService)
 
         // создал новый экран
         let detailVC = DetailFilmViewController(viewMovieDetailModel: detailFilmModel)

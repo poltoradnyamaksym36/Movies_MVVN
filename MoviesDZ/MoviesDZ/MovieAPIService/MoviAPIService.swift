@@ -24,6 +24,7 @@ class MovieApiService: MovieApiServiceProtocol {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let movieList = try decoder.decode(ListFilm.self, from: data)
                 completion(.success(movieList))
+                print(movieList.results)
 
 //                self.results = decodeData.results
 //                self.updateViewData?()
@@ -34,5 +35,29 @@ class MovieApiService: MovieApiServiceProtocol {
         }.resume()
     }
 
-    func fetchDetailMovieFill(movieID: Int?, completion: @escaping (Result<Movie, Error>) -> ()) {}
+    func fetchDetailMovieFill(movieID: Int?, completion: @escaping (Result<Movie, Error>) -> ()) {
+        guard let url =
+            URL(
+                string: """
+                https://api.themoviedb.org/3/movie/\(movieID ??
+                    0)?api_key=7502b719af3e4c9ad68d80658e7b83ed&language=ru-RU
+                """
+            )
+        else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else { return }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let details = try decoder.decode(Movie.self, from: data)
+                completion(.success(details))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
 }

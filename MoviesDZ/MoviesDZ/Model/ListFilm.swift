@@ -20,17 +20,4 @@ struct Results: Codable {
     var popularity: Float?
     var voteCount: Int?
     var voteAverage: Float?
-
-    enum CodingKeys: String, CodingKey {
-        case adult
-        case backdropPath = "backdrop_path"
-        case id
-        case originalTitle = "original_title"
-        case overview, popularity
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case title
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
-    }
 }

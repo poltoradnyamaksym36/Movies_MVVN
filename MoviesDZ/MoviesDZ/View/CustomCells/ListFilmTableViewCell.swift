@@ -21,15 +21,17 @@ class ListFilmTableViewCell: UITableViewCell {
 
     func configureCell(withData data: Results?) {
         DispatchQueue.global().async {
-            guard let poster = data?.posterPath,
-                  let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(poster)"),
-                  let imageData = try? Data(contentsOf: urlImage),
-                  let image = UIImage(data: imageData)
-            else { return }
+            guard let data = data else {
+                return
+            }
+
+            guard let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath ?? "")"),
+                  let imageData = try? Data(contentsOf: urlImage) else { return }
+
             DispatchQueue.main.async {
-                self.movieImageView.image = image
-                self.titleLabel.text = data?.title
-                self.labelText.text = data?.overview
+                self.movieImageView.image = UIImage(data: imageData)
+                self.labelText.text = data.overview
+                self.titleLabel.text = data.title
             }
         }
     }

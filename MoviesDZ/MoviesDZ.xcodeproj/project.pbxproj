@@ -137,8 +137,8 @@
 		30CFFE0E26B5AFA8001F8806 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				30C9296A26B1CA92002A9145 /* Movie.swift */,
 				30CFFE0C26B5AE36001F8806 /* ListFilm.swift */,
+				30C9296A26B1CA92002A9145 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
