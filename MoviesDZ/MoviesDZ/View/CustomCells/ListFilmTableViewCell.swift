@@ -11,6 +11,7 @@ class ListFilmTableViewCell: UITableViewCell {
     private let titleLabel = UILabel()
     private let labelText = UILabel()
     private let movieImageView = UIImageView()
+    private let imageApiService = ImageApiService()
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -19,11 +20,11 @@ class ListFilmTableViewCell: UITableViewCell {
         createLabel()
     }
 
-    func configureCell(withData data: Results?) {
+    func configureCell(withData data: Results?) { // Results
+//        guard let data = data else { return }
+
         DispatchQueue.global().async {
-            guard let data = data else {
-                return
-            }
+            guard let data = data else { return }
 
             guard let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath ?? "")"),
                   let imageData = try? Data(contentsOf: urlImage) else { return }
@@ -34,6 +35,17 @@ class ListFilmTableViewCell: UITableViewCell {
                 self.titleLabel.text = data.title
             }
         }
+
+//        imageApiService.configure(movie: data) { [weak self] result in
+//            switch result {
+//            case let .success(image):
+//                self?.movieImageView.image = image
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//                self.labelText.text = data.overview
+//                 self.titleLabel.text = data.title
     }
 
     func createLabel() {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30118A40271ADADE00B4E689 /* MoviAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30118A3F271ADADE00B4E689 /* MoviAPIService.swift */; };
 		30118A43271AFA2000B4E689 /* MovieHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30118A42271AFA2000B4E689 /* MovieHandler.swift */; };
+		30118A45271B254A00B4E689 /* ImageApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30118A44271B254A00B4E689 /* ImageApiService.swift */; };
 		305A7BAB26B73D7900D8291D /* SelectedMovieImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305A7BAA26B73D7900D8291D /* SelectedMovieImageTableViewCell.swift */; };
 		3087E8CD26AF27B700F3BD09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087E8CC26AF27B700F3BD09 /* AppDelegate.swift */; };
 		3087E8CF26AF27B700F3BD09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087E8CE26AF27B700F3BD09 /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		30118A3F271ADADE00B4E689 /* MoviAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviAPIService.swift; sourceTree = "<group>"; };
 		30118A42271AFA2000B4E689 /* MovieHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHandler.swift; sourceTree = "<group>"; };
+		30118A44271B254A00B4E689 /* ImageApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageApiService.swift; sourceTree = "<group>"; };
 		305A7BAA26B73D7900D8291D /* SelectedMovieImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieImageTableViewCell.swift; sourceTree = "<group>"; };
 		3087E8C926AF27B700F3BD09 /* MoviesDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3087E8CC26AF27B700F3BD09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				30118A3F271ADADE00B4E689 /* MoviAPIService.swift */,
+				30118A44271B254A00B4E689 /* ImageApiService.swift */,
 			);
 			path = MovieAPIService;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				30CFFE0D26B5AE36001F8806 /* ListFilm.swift in Sources */,
 				3087E8CD26AF27B700F3BD09 /* AppDelegate.swift in Sources */,
 				30C9296B26B1CA92002A9145 /* Movie.swift in Sources */,
+				30118A45271B254A00B4E689 /* ImageApiService.swift in Sources */,
 				30C9296D26B1D978002A9145 /* ListFilmTableViewCell.swift in Sources */,
 				3087E8CF26AF27B700F3BD09 /* SceneDelegate.swift in Sources */,
 				305A7BAB26B73D7900D8291D /* SelectedMovieImageTableViewCell.swift in Sources */,
