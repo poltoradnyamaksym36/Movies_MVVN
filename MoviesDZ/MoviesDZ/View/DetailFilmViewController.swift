@@ -29,22 +29,8 @@ final class DetailFilmViewController: UIViewController {
         chosenMovieTableView.dataSource = self
         subviews()
         constraints()
-//        updateView()
         viewMovieDetailModel?.getMovieDetails()
     }
-
-//    func reloadTable() {
-//        viewMovieDetailModel.
-//    }
-//
-
-//    func updateView() {
-//        viewMovieDetailModel?.updateViewData = { [weak self] in
-//            DispatchQueue.main.async {
-//                self?.chosenMovieTableView.reloadData()
-//            }
-//        }
-//    }
 
     init(viewMovieDetailModel: DetailFilmViewModelProtocol) {
         self.viewMovieDetailModel = viewMovieDetailModel

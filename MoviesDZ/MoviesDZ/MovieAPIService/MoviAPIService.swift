@@ -25,10 +25,6 @@ class MovieApiService: MovieApiServiceProtocol {
                 let movieList = try decoder.decode(ListFilm.self, from: data)
                 completion(.success(movieList))
                 print(movieList.results)
-
-//                self.results = decodeData.results
-//                self.updateViewData?()
-
             } catch {
                 completion(.failure(error))
             }

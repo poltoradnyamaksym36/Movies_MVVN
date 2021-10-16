@@ -3,10 +3,13 @@
 
 import Foundation
 import UIKit
+
 ///
 protocol ImageApiServiceProtocol: AnyObject {
     func configure(movie: Movie, completion: @escaping (Result<UIImage, Error>) -> Void)
 }
+
+private var session = URLSession.shared
 
 ///
 class ImageApiService: ImageApiServiceProtocol {

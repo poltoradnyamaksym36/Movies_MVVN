@@ -16,23 +16,23 @@ final class SelectedMovieImageTableViewCell: UITableViewCell {
     // MARK: - Private methods
 
     func configure(movie: Movie) {
-//        DispatchQueue.global().async {
-//            let urlString = "https://image.tmdb.org/t/p/w500\(movie.posterPath ?? "")"
-//            guard let url = URL(string: urlString) else { return }
-//            guard let imageData = try? Data(contentsOf: url) else { return }
-//            guard let posterImage = UIImage(data: imageData) else { return }
-//            DispatchQueue.main.async {
-//                self.chosenMoviePosterImageView.image = posterImage
-//            }
-//        }
-        imageAPIService.configure(movie: movie) { [weak self] result in
-            switch result {
-            case let .success(image):
-                self?.chosenMoviePosterImageView.image = image
-            case let .failure(error):
-                print(error.localizedDescription)
+        DispatchQueue.global().async {
+            let urlString = "https://image.tmdb.org/t/p/w500\(movie.posterPath ?? "")"
+            guard let url = URL(string: urlString) else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            guard let posterImage = UIImage(data: imageData) else { return }
+            DispatchQueue.main.async {
+                self.chosenMoviePosterImageView.image = posterImage
             }
         }
+//        imageAPIService.configure(movie: movie) { [weak self] result in
+//            switch result {
+//            case let .success(image):
+//                self?.chosenMoviePosterImageView.image = image
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
 
     override func layoutSubviews() {

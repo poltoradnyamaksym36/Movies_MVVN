@@ -7,6 +7,7 @@ class ListFilmTableViewCell: UITableViewCell {
     static let identifier = "ListFilmTableViewCell"
 
     // MARK: - Private Properties
+
     private let titleLabel = UILabel()
     private let labelText = UILabel()
     private let movieImageView = UIImageView()
@@ -19,9 +20,7 @@ class ListFilmTableViewCell: UITableViewCell {
         createLabel()
     }
 
-    func configureCell(withData data: Results?) { // Results
-//        guard let data = data else { return }
-
+    func configureCell(withData data: Results?) {
         DispatchQueue.global().async {
             guard let data = data else { return }
 
