@@ -35,6 +35,10 @@ class ListFilmViewController: UIViewController {
         ])
     }
 
+    func setupMoViewModel(viewModel: MoviesViewModelProtocol) {
+        self.viewModel = viewModel
+    }
+
     func updateView() {
         viewModel.fetchData()
 
@@ -69,8 +73,11 @@ extension ListFilmViewController: UITableViewDataSource {
 extension ListFilmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let movieID = viewModel.results?[indexPath.row].id else { return }
-        let vc = DetailFilmViewController()
-        vc.movieID = movieID
-        navigationController?.pushViewController(vc, animated: true)
+
+        let detailApiService = MovieApiService()
+        let detailFilmModel = MovieDetailViewModel(movieID: movieID, movieDetailApiService: detailApiService)
+        let detailVC = DetailFilmViewController(viewMovieDetailModel: detailFilmModel)
+
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

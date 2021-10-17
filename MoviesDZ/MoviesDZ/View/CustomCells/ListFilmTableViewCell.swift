@@ -7,9 +7,11 @@ class ListFilmTableViewCell: UITableViewCell {
     static let identifier = "ListFilmTableViewCell"
 
     // MARK: - Private Properties
+
     private let titleLabel = UILabel()
     private let labelText = UILabel()
     private let movieImageView = UIImageView()
+    private let imageApiService = ImageApiService()
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -20,17 +22,29 @@ class ListFilmTableViewCell: UITableViewCell {
 
     func configureCell(withData data: Results?) {
         DispatchQueue.global().async {
-            guard let poster = data?.posterPath,
-                  let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(poster)"),
-                  let imageData = try? Data(contentsOf: urlImage),
-                  let image = UIImage(data: imageData)
-            else { return }
+            guard let data = data else { return }
+
+            guard let urlImage = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath ?? "")"),
+                  let imageData = try? Data(contentsOf: urlImage) else { return }
             DispatchQueue.main.async {
-                self.movieImageView.image = image
-                self.titleLabel.text = data?.title
-                self.labelText.text = data?.overview
+                self.movieImageView.image = UIImage(data: imageData)
+                self.labelText.text = data.overview
+                self.titleLabel.text = data.title
             }
         }
+
+        // MARK: - imageAPIService
+
+//        imageApiService.configure(movie: data) { [weak self] result in
+//            switch result {
+//            case let .success(image):
+//                self?.movieImageView.image = image
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        self.labelText.text = data?.overview
+//        self.titleLabel.text = data?.title
     }
 
     func createLabel() {

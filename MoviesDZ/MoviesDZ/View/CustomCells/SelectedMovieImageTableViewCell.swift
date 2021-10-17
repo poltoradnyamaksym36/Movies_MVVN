@@ -11,6 +11,8 @@ final class SelectedMovieImageTableViewCell: UITableViewCell {
     private let chosenMoviePosterImageView = UIImageView()
     private let descriptionLabel = UILabel()
 
+    let imageAPIService = ImageApiService()
+
     // MARK: - Private methods
 
     func configure(movie: Movie) {
@@ -23,6 +25,17 @@ final class SelectedMovieImageTableViewCell: UITableViewCell {
                 self.chosenMoviePosterImageView.image = posterImage
             }
         }
+
+        // MARK: - imageAPIService
+
+//        imageAPIService.configure(movie: movie) { [weak self] result in
+//            switch result {
+//            case let .success(image):
+//                self?.chosenMoviePosterImageView.image = image
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
 
     override func layoutSubviews() {

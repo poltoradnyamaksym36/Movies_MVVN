@@ -8,7 +8,6 @@ final class DetailFilmViewController: UIViewController {
 
     private let imageCellID = SelectedMovieImageTableViewCell.identifier
     private let descriptionCellID = DetailFilmTableViewCell.identifier
-    private var movieList: Movie?
     private let chosenMovieTableView: UITableView = {
         let chosenMovieTableView = UITableView()
         chosenMovieTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,7 @@ final class DetailFilmViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    var movieID = Int()
+    var viewMovieDetailModel: DetailFilmViewModelProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,17 @@ final class DetailFilmViewController: UIViewController {
         chosenMovieTableView.dataSource = self
         subviews()
         constraints()
-        fetchFill()
+        viewMovieDetailModel?.getMovieDetails()
+    }
+
+    init(viewMovieDetailModel: DetailFilmViewModelProtocol) {
+        self.viewMovieDetailModel = viewMovieDetailModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Private Methods
@@ -47,32 +56,6 @@ final class DetailFilmViewController: UIViewController {
             chosenMovieTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-    private func fetchFill() {
-        guard let url =
-            URL(
-                string: """
-                https://api.themoviedb.org/3/movie/\(movieID)?api_key=7502b719af3e4c9ad68d80658e7b83ed&language=ru-RU
-                """
-            )
-        else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { data, _, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            do {
-                self.movieList = try JSONDecoder()
-                    .decode(Movie.self, from: data ?? Data()) // во 2 экране вместо movieList парсим Result
-                DispatchQueue.main.async {
-                    self.chosenMovieTableView.reloadData()
-                    print("reloadData")
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }.resume()
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -83,7 +66,7 @@ extension DetailFilmViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let movie = movieList else { return UITableViewCell() }
+        guard let movie = viewMovieDetailModel?.movieDetail else { return UITableViewCell() }
         switch indexPath.row {
         case 0:
             guard let cell = tableView
